@@ -25,6 +25,10 @@ const router = createBrowserRouter([
                 element : <Contact />
             }
         ]
+    },
+    {
+        path : "*",
+        element : <NotFound />
     }
 ])
 
