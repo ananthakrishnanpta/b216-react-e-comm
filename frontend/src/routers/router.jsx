@@ -9,27 +9,28 @@ import NotFound from "../pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
     {
-        path : "/",
-        element : <RootLayout />,
-        children : [
+        path: "/",
+        element: <RootLayout />,
+        children: [
             {
                 index: true,
-                element: <Home/>
+                element: <Home />
             },
             {
-                path : "about",
-                element : <About />
+                path: "about",
+                element: <About />
             },
             {
-                path : "contact",
-                element : <Contact />
+                path: "contact",
+                element: <Contact />
+            },
+            {
+                path: "*",
+                element: <NotFound />
             }
         ]
     },
-    {
-        path : "*",
-        element : <NotFound />
-    }
+
 ])
 
 export default router;
