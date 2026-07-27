@@ -6,13 +6,13 @@ import Footer from "../../components/Footer/Footer";
 export default function RootLayout() {
     return (
         <>
-        <header>
+        <header className="fixed-top">
             <Navbar />
         </header>
-        <main>
+        <main className="py-5">
             <Outlet />
         </main>
-        <footer>
+        <footer className="fixed-bottom w-100 text-center text-info bg-dark">
             <Footer />
         </footer>
         </>
