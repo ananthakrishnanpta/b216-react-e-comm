@@ -1,10 +1,12 @@
 import { useParams } from "react-router";
 import useProduct from "../../../hooks/useProduct";
+import useCurrency from "../../../hooks/useCurrency";
 
 export default function ProductDetails() {
     const { id } = useParams(); // fetch the product id from the URL parameters
 
     const { product, loading } = useProduct(id);
+    const { formatPrice } = useCurrency();
 
     if (loading) {
         return <h2>Loading product...</h2>;
@@ -17,7 +19,7 @@ export default function ProductDetails() {
             </div>
             <div className="col">
                 <h2>{product.title}</h2>
-                <h4>${product.price}</h4>
+                <h4>{formatPrice(product.price)}</h4>
                 <p>
                     {product.description}
                 </p>

@@ -1,6 +1,7 @@
 import './Navbar.css';
 
 import { NavLink } from 'react-router';
+import CurrencySelector from '../CurrencySelector/CurrencySelector';
 
 function Navbar(props) {
     return (
@@ -27,6 +28,9 @@ function Navbar(props) {
                                                                          "nav-link active" : "nav-link" }>
                             Contact</NavLink>
                         </li>
+
+                        <CurrencySelector />
+                        
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Dropdown
