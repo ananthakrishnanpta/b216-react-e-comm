@@ -1,0 +1,2 @@
+const BASE_URL = "https://open.er-api.com/v6/latest/USD";
+
