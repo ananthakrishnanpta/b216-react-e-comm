@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-
+import './RootLayout.css';
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
@@ -9,10 +9,10 @@ export default function RootLayout() {
         <header className="fixed-top">
             <Navbar />
         </header>
-        <main className="py-5">
+        <main>
             <Outlet />
         </main>
-        <footer className="fixed-bottom w-100 text-center text-info bg-dark">
+        <footer className="w-100 text-center text-info bg-dark">
             <Footer />
         </footer>
         </>

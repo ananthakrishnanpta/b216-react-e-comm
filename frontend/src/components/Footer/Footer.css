@@ -1,0 +1,8 @@
+.footer-icon {
+    color: white;
+    transition: .2s;
+}
+
+.footer-icon:hover {
+    color: #00ffaa;
+}

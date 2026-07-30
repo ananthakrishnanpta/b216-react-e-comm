@@ -1,59 +1,131 @@
-import './Navbar.css';
+import "./Navbar.css";
 
-import { NavLink } from 'react-router';
-import CurrencySelector from '../CurrencySelector/CurrencySelector';
+import { NavLink } from "react-router";
+import useCart from "../../hooks/useCart";
+import CurrencySelector from "../CurrencySelector/CurrencySelector";
 
-function Navbar(props) {
+const Navbar = () => {
+    const { totalItems } = useCart();
+
     return (
-        <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme='dark'>
-            <div className="container-fluid">
-                <a className="navbar-brand" href="#">Tea shop</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <nav
+            className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top"
+            data-bs-theme="dark"
+        >
+            <div className="container">
+
+                {/* Logo */}
+                <NavLink
+                    to="/"
+                    className="navbar-brand fw-bold logo-glow"
+                >
+                    🍵 TeaShop
+                </NavLink>
+
+                {/* Mobile Toggle */}
+                <button
+                    className="navbar-toggler"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent"
+                >
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <NavLink to="/" className={ ({isActive}) => isActive ?
-                                                                         "nav-link active" : "nav-link" }>
-                            Home</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink to="/about" className={ ({isActive}) => isActive ?
-                                                                         "nav-link active" : "nav-link" }>
-                            About</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink to="/contact" className={ ({isActive}) => isActive ?
-                                                                         "nav-link active" : "nav-link" }>
-                            Contact</NavLink>
+
+                <div
+                    className="collapse navbar-collapse"
+                    id="navbarContent"
+                >
+
+                    {/* Search */}
+                    <form
+                        className="d-flex mx-auto my-3 my-lg-0 navbar-search"
+                        role="search"
+                    >
+                        <input
+                            className="form-control"
+                            type="search"
+                            placeholder="Search tea..."
+                        />
+
+                        <button
+                            className="btn btn-success ms-2"
+                            type="submit"
+                        >
+                            <i className="bi bi-search"></i>
+                        </button>
+                    </form>
+
+                    {/* Right Side */}
+                    <ul className="navbar-nav align-items-lg-center ms-lg-auto">
+
+                        <li className="nav-item me-lg-3">
+                            <CurrencySelector />
                         </li>
 
-                        <CurrencySelector />
-                        
+                        <li className="nav-item me-lg-3">
+                            <NavLink
+                                to="/cart"
+                                className="nav-link position-relative"
+                            >
+                                <i className="bi bi-cart3 fs-5"></i>
+
+                                {totalItems > 0 && (
+                                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        {totalItems}
+                                    </span>
+                                )}
+                            </NavLink>
+                        </li>
+
+                        {/* Profile */}
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
+
+                            <a
+                                href="#"
+                                className="nav-link dropdown-toggle d-flex align-items-center"
+                                data-bs-toggle="dropdown"
+                            >
+                                <div className="profile-avatar">
+                                    <i className="bi bi-person-fill"></i>
+                                </div>
                             </a>
-                            <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li>
+
+                            <ul className="dropdown-menu dropdown-menu-end">
+
+                                <li>
+                                    <NavLink
+                                        to=""
+                                        className="dropdown-item"
+                                    >
+                                        <i className="bi bi-person me-2"></i>
+                                        Profile
+                                    </NavLink>
+                                </li>
+
+                                <li>
+                                    <hr className="dropdown-divider" />
+                                </li>
+
+                                <li>
+                                    <NavLink
+                                        to=""
+                                        className="dropdown-item text-danger"
+                                    >
+                                        <i className="bi bi-box-arrow-right me-2"></i>
+                                        Logout
+                                    </NavLink>
+                                </li>
+
                             </ul>
+
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link disabled" aria-disabled="true">Disabled</a>
-                        </li>
+
                     </ul>
-                    <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+
                 </div>
             </div>
         </nav>
-    )
-}
+    );
+};
 
 export default Navbar;

@@ -6,7 +6,8 @@ import router from './routers/router.jsx';
 import CurrencyProvider  from './context/CurrencyContext';
 import CartProvider from './context/CartContext.jsx';
 
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './index.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 

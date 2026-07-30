@@ -1,12 +1,14 @@
 import { useParams } from "react-router";
 import useProduct from "../../../hooks/useProduct";
 import useCurrency from "../../../hooks/useCurrency";
+import useCart from "../../../hooks/useCart";
 
 export default function ProductDetails() {
     const { id } = useParams(); // fetch the product id from the URL parameters
-
     const { product, loading } = useProduct(id);
     const { formatPrice } = useCurrency();
+    const { addToCart } = useCart();
+
 
     if (loading) {
         return <h2>Loading product...</h2>;
@@ -24,7 +26,7 @@ export default function ProductDetails() {
                     {product.description}
                 </p>
 
-                <button className="btn btn-warning">Add to Cart</button>
+                <button className="btn btn-warning" onClick={() => addToCart(product)}>Add to Cart</button>
             </div>
         </div>
     )
