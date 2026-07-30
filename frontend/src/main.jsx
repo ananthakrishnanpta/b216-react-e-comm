@@ -4,6 +4,7 @@ import { RouterProvider } from 'react-router';
 import router from './routers/router.jsx';
 
 import CurrencyProvider  from './context/CurrencyContext';
+import CartProvider from './context/CartContext.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
@@ -12,7 +13,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <CurrencyProvider>
-    <RouterProvider router = {router} />
+      <CartProvider>
+        <RouterProvider router = {router} />
+      </CartProvider>
     </CurrencyProvider>
   </StrictMode>,
 )
