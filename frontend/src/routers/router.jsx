@@ -9,6 +9,9 @@ import NotFound from "../pages/NotFound/NotFound";
 
 import CartPage from "../pages/CartPage/CartPage";
 
+// Auth Pages
+import auth_router from "./auth_router";
+
 import ProductDetails from "../components/Products/ProductDetails/ProductDetails";
 
 const router = createBrowserRouter([
@@ -35,6 +38,12 @@ const router = createBrowserRouter([
             {
                 path: "cart",
                 element: <CartPage />
+            },
+            {
+                path: "accounts",
+                children : [
+                    ...auth_router
+                ]
             },
             {
                 path: "*",

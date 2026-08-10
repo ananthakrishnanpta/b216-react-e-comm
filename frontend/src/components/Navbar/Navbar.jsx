@@ -92,7 +92,7 @@ const Navbar = () => {
 
                             <ul className="dropdown-menu dropdown-menu-end">
 
-                                <li>
+                                {/* <li>
                                     <NavLink
                                         to=""
                                         className="dropdown-item"
@@ -100,19 +100,19 @@ const Navbar = () => {
                                         <i className="bi bi-person me-2"></i>
                                         Profile
                                     </NavLink>
-                                </li>
+                                </li> */}
 
-                                <li>
+                                {/* <li>
                                     <hr className="dropdown-divider" />
-                                </li>
+                                </li> */}
 
                                 <li>
                                     <NavLink
-                                        to=""
-                                        className="dropdown-item text-danger"
+                                        to="accounts/login"
+                                        className="dropdown-item text-info"
                                     >
                                         <i className="bi bi-box-arrow-right me-2"></i>
-                                        Logout
+                                        Login
                                     </NavLink>
                                 </li>
 

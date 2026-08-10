@@ -13,8 +13,9 @@ const Home = () => {
             </div>
 
         )
-    }
-    return (
+        }
+    
+        return (
         <>
             <section id="products">
                 <div className="container">
