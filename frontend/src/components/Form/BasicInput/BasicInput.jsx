@@ -7,7 +7,9 @@ const BasicInput = ({
     value,
     placeholder,
     type = "text",
-    onChangeFunc = null
+
+    register,
+    error
 }) => {
     return (
         <div className="basic-input-wrapper mb-3">
@@ -21,9 +23,15 @@ const BasicInput = ({
                 id={id}
                 value={value}
                 placeholder={placeholder}
-                className={"form-control " + {className}}
-                onChange={onChangeFunc}
+                className={`form-control ${className}`}
+                {...register}
             />
+
+            {error && (
+                <div className='text-danger mt-1'>
+                    {error.message}
+                </div>
+            )}
         </div>
     );
 };
